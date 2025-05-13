@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Position Property - Deep Exploration</title>
+  <style>
+    .code-preview {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-family: 'Consolas', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+
+    .code-preview pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .code-label {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .code-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .code-tab {
+      padding: 5px 10px;
+      background: #2d2d2d;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .code-tab.active {
+      background: #3d3d3d;
+    }
+
+    .code-content {
+      display: none;
+    }
+
+    .code-content.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body style="margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f5f5;">
+
+  <header
+    style="position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(to right, #2c3e50, #3498db); color: white; padding: 15px; text-align: center; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <h1 style="margin: 0; font-size: 24px;">CSS Position Property Guide</h1>
+  </header>
+
+  <main style="margin-top: 70px; padding: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+    <section
+      style="margin-bottom: 60px; border: 1px solid #e0e0e0; padding: 25px; position: relative; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <h2 style="color: #2c3e50; margin-top: 0;">Static (default)</h2>
+      <div
+        style="position: static; background-color: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 4px solid #6c757d;">
+        This box uses <strong>position: static</strong>. It flows naturally.</div>
+
+      <div class="code-preview">
+        <div class="code-label">HTML & CSS Code:</div>
+        <div class="code-tabs">
+          <div class="code-tab active" onclick="showCode(this, 'static-html')">HTML</div>
+          <div class="code-tab" onclick="showCode(this, 'static-css')">CSS</div>
+        </div>
+        <div id="static-html" class="code-content active">
+          <pre>&lt;div style="position: static; background-color: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 4px solid #6c757d;"&gt;
+  This box uses &lt;strong&gt;position: static&lt;/strong&gt;. It flows naturally.
+&lt;/div&gt;</pre>
+        </div>
+        <div id="static-css" class="code-content">
+          <pre>/* Static is the default position value */
+div {
+  position: static;  /* Can be omitted as it's default */
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #6c757d;
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section
+      style="margin-bottom: 60px; border: 1px solid #e0e0e0; padding: 25px; position: relative; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <h2 style="color: #2c3e50; margin-top: 0;">Relative</h2>
+      <div
+        style="position: relative; top: 20px; left: 20px; background-color: #e3f2fd; padding: 15px; border-radius: 6px; border-left: 4px solid #2196f3;">
+        This box uses <strong>position: relative</strong>. It's moved 20px down and right.</div>
+
+      <div class="code-preview">
+        <div class="code-label">HTML & CSS Code:</div>
+        <div class="code-tabs">
+          <div class="code-tab active" onclick="showCode(this, 'relative-html')">HTML</div>
+          <div class="code-tab" onclick="showCode(this, 'relative-css')">CSS</div>
+        </div>
+        <div id="relative-html" class="code-content active">
+          <pre>&lt;div style="position: relative; top: 20px; left: 20px; background-color: #e3f2fd; padding: 15px; border-radius: 6px; border-left: 4px solid #2196f3;"&gt;
+  This box uses &lt;strong&gt;position: relative&lt;/strong&gt;. It's moved 20px down and right.
+&lt;/div&gt;</pre>
+        </div>
+        <div id="relative-css" class="code-content">
+          <pre>div {
+  position: relative;
+  top: 20px;      /* Moves element 20px from its top */
+  left: 20px;     /* Moves element 20px from its left */
+  background-color: #e3f2fd;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #2196f3;
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section
+      style="position: relative; height: 200px; background-color: #e8f5e9; padding: 25px; margin-bottom: 60px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <h2 style="color: #2c3e50; margin-top: 0;">Absolute</h2>
+      <div
+        style="position: absolute; top: 10px; right: 10px; background-color: #ffebee; padding: 15px; border-radius: 6px; border-left: 4px solid #f44336;">
+        This box uses <strong>position: absolute</strong> inside a relative container.</div>
+      <p style="position: absolute; bottom: 20px; left: 25px;">This section is the <strong>relative container</strong>
+        for the absolute box.</p>
+
+      <div class="code-preview" style="position: absolute; bottom: 20px; right: 25px; width: 45%;">
+        <div class="code-label">HTML & CSS Code:</div>
+        <div class="code-tabs">
+          <div class="code-tab active" onclick="showCode(this, 'absolute-html')">HTML</div>
+          <div class="code-tab" onclick="showCode(this, 'absolute-css')">CSS</div>
+        </div>
+        <div id="absolute-html" class="code-content active">
+          <pre>&lt;section style="position: relative;"&gt;
+  &lt;div style="position: absolute; top: 10px; right: 10px;"&gt;
+    This box uses position: absolute
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+        </div>
+        <div id="absolute-css" class="code-content">
+          <pre>section {
+  position: relative;  /* Creates positioning context */
+}
+
+div {
+  position: absolute;
+  top: 10px;      /* Positions from top of relative parent */
+  right: 10px;    /* Positions from right of relative parent */
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section
+      style="margin-bottom: 60px; border: 1px solid #e0e0e0; padding: 25px; position: relative; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <h2 style="color: #2c3e50; margin-top: 0;">Sticky</h2>
+      <div
+        style="height: 300px; overflow-y: scroll; border: 2px solid #e0e0e0; padding: 10px; background-color: #fafafa; border-radius: 6px;">
+        <div
+          style="position: sticky; top: 0; background: linear-gradient(to right, #43a047, #66bb6a); color: white; padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+          I stick to the top when scrolling! (position: sticky)</div>
+        <div style="height: 800px; background: linear-gradient(white, #f5f5f5); padding: 20px; border-radius: 4px;">
+          Scroll me! I'm long content so you can see sticky behavior.
+        </div>
+      </div>
+
+      <div class="code-preview">
+        <div class="code-label">HTML & CSS Code:</div>
+        <div class="code-tabs">
+          <div class="code-tab active" onclick="showCode(this, 'sticky-html')">HTML</div>
+          <div class="code-tab" onclick="showCode(this, 'sticky-css')">CSS</div>
+        </div>
+        <div id="sticky-html" class="code-content active">
+          <pre>&lt;div style="height: 300px; overflow-y: scroll;"&gt;
+  &lt;div style="position: sticky; top: 0;"&gt;
+    I stick to the top when scrolling!
+  &lt;/div&gt;
+  &lt;div style="height: 800px;"&gt;
+    Scroll me!
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+        <div id="sticky-css" class="code-content">
+          <pre>/* Container */
+div {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+/* Sticky element */
+div.sticky {
+  position: sticky;
+  top: 0;         /* Sticks when it reaches top */
+}
+
+/* Content to scroll */
+div.content {
+  height: 800px;  /* Long content to enable scrolling */
+}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div
+    style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(to right, #ff9800, #ffb74d); color: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-width: 300px;">
+    I'm a fixed box! I stay in place when you scroll.
+  </div>
+
+  <div class="code-preview" style="position: fixed; bottom: 100px; right: 20px; max-width: 300px;">
+    <div class="code-label">Fixed Position Code:</div>
+    <div class="code-tabs">
+      <div class="code-tab active" onclick="showCode(this, 'fixed-html')">HTML</div>
+      <div class="code-tab" onclick="showCode(this, 'fixed-css')">CSS</div>
+    </div>
+    <div id="fixed-html" class="code-content active">
+      <pre>&lt;div style="position: fixed; bottom: 20px; right: 20px;"&gt;
+  I'm a fixed box!
+&lt;/div&gt;</pre>
+    </div>
+    <div id="fixed-css" class="code-content">
+      <pre>div {
+  position: fixed;
+  bottom: 20px;   /* Distance from bottom */
+  right: 20px;    /* Distance from right */
+  /* Other styles */
+}</pre>
+    </div>
+  </div>
+
+  <script>
+    function showCode(element, contentId) {
+      // Remove active class from all tabs in the same container
+      const tabs = element.parentElement.getElementsByClassName('code-tab');
+      for (let tab of tabs) {
+        tab.classList.remove('active');
+      }
+
+      // Add active class to clicked tab
+      element.classList.add('active');
+
+      // Hide all content in the same container
+      const container = element.closest('.code-preview');
+      const contents = container.getElementsByClassName('code-content');
+      for (let content of contents) {
+        content.classList.remove('active');
+      }
+
+      // Show selected content
+      document.getElementById(contentId).classList.add('active');
+    }
+  </script>
+
+</body>
+
+</html>
